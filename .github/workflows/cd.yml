@@ -41,18 +41,26 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_KEY }}
           script: |
-            echo "=== 기존 애플리케이션 종료 ==="
-            pkill -f 'java -jar' || true
+            echo "=== 최신 JAR 확인 ==="
+            JAR_FILE=$(ls -t /home/ubuntu/app/build/libs/*.jar | head -n 1)
+            echo "JAR_FILE=$JAR_FILE"
 
-            echo "=== 프로세스 종료 대기 ==="
-            while pgrep -f 'java -jar' > /dev/null
-            do
-              sleep 1
-            done
+            echo "=== 기존 애플리케이션 종료 ==="
+            PID=$(pgrep -f "$JAR_FILE" || true)
+
+            if [ -n "$PID" ]; then
+              kill -15 $PID
+
+              echo "=== 프로세스 종료 대기 ==="
+              while kill -0 $PID 2>/dev/null
+              do
+                sleep 1
+              done
+            else
+              echo "실행 중인 애플리케이션 없음"
+            fi
 
             echo "=== 최신 JAR 실행 ==="
-            JAR_FILE=$(ls -t /home/ubuntu/app/build/libs/*.jar | head -n 1)
-
             nohup java -jar "$JAR_FILE" > /home/ubuntu/app/app.log 2>&1 &
 
             echo "=== 실행 완료 ==="
