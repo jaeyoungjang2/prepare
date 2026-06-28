@@ -97,8 +97,7 @@ jobs:
             else
               echo "실행 중인 애플리케이션 없음"
             fi
-
-            sleep 10
+            
             echo "=== 최신 JAR 실행 ==="
             nohup java -jar "$JAR_FILE" > /home/ubuntu/app/app.log 2>&1 &
             echo "=== 실행 완료 ==="
