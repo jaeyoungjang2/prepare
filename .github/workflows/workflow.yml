@@ -100,5 +100,4 @@ jobs:
 
             echo "=== 최신 JAR 실행 ==="
             nohup java -jar "$JAR_FILE" > /home/ubuntu/app/app.log 2>&1 &
-
             echo "=== 실행 완료 ==="
