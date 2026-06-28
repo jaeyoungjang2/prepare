@@ -84,7 +84,7 @@ jobs:
             echo "JAR_FILE=$JAR_FILE"
 
             echo "=== 기존 애플리케이션 종료 ==="
-            PID=$(pgrep -f "$JAR_FILE" || true)
+            PID=$(pgrep -f jar || true)
 
             if [ -n "$PID" ]; then
               kill -15 $PID
