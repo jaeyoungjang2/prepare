@@ -7,6 +7,6 @@ class CalculatorTest {
 	@Test
 	void CalculatorTest() {
 		Calculator calculator = new Calculator();
-		Assertions.assertThat(2).isEqualTo(calculator.add(1, 1));
+		Assertions.assertThat(3).isEqualTo(calculator.add(2, 1));
 	}
 }
