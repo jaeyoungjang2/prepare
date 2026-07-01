@@ -23,8 +23,7 @@ jobs:
       - name: Gradle Wrapper 캐시
         uses: gradle/actions/setup-gradle@v3
 
-      - nam
-      - e: gradlew 실행 권한 부여
+      - name: gradlew 실행 권한 부여
         run: chmod +x ./gradlew
 
       - name: 테스트 실행
