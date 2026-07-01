@@ -1,6 +1,6 @@
 package com.sparta.spring_prepare.cicd;
 
-public class Calculator2 {
+public class Calculator3 {
 
 	public int add(int a, int b) {
 		a = b;
