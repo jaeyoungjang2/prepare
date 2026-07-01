@@ -10,7 +10,7 @@ class CalculatorTest {
 	void CalculatorTest() {
 		Calculator calculator = new Calculator();
 		Assertions.assertThat(2)
-			.isEqualTo(calculator.add(2, 1));
+			.isEqualTo(calculator.add(1, 1));
 	}
 
 }
