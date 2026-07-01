@@ -1,5 +1,7 @@
 package com.sparta.spring_prepare.cicd;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -7,6 +9,8 @@ class CalculatorTest {
 	@Test
 	void CalculatorTest() {
 		Calculator calculator = new Calculator();
-		Assertions.assertThat(2).isEqualTo(calculator.add(1, 1));
+		Assertions.assertThat(2)
+			.isEqualTo(calculator.add(1, 1));
 	}
+
 }
